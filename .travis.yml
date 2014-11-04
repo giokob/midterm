@@ -1,4 +1,18 @@
 language: c
 compiler: gcc
-install: make
+
+env:
+  global:
+    # COVERITY_SCAN_TOKEN
+    # ** specific to your project **
+    - secure: "FCGAAj31g40lj6h-FG9dKA"
+
+addons:
+  coverity_scan:
+    project:
+      name: gkiko/midterm
+      version: master
+      description: The FreeRADIUS server project
+  build_command: make
+  branch_pattern: *
 script: make
