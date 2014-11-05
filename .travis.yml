@@ -3,16 +3,16 @@ compiler: gcc
 
 env:
   global:
-    # COVERITY_SCAN_TOKEN
-    # ** specific to your project **
-    - secure: "FCGAAj31g40lj6h-FG9dKA"
+   # The next declaration is the encrypted COVERITY_SCAN_TOKEN, created
+   #   via the "travis encrypt" command using the project repo's public key
+   - secure: "WHkT1bLbpz8VA8tl+qyZvWHLg7YvnMPhCNXCEAQQaklcDq8HQ7glIrrs35VnTDfs09tVgkPbgsAfwBuwxqkmmxWaquW0AHdb6cefNpQVj2ovUriQVNBFmjfte9Bbq0NWKoLp+4IY/3IDfLoUOekOIDXuQtkJhNvX1zkkt21lSeo="
 
 addons:
   coverity_scan:
     project:
-      name: gkiko/midterm
-      version: master
-      description: The FreeRADIUS server project
-  build_command: make
-  branch_pattern: *
-script: make
+      name: "Freeuni-CN101-2014/midterm"
+      description: "Build submitted via Travis CI"
+    notification_email: gkiko10@freeuni.edu.ge
+    build_command_prepend: ""
+    build_command:   "make"
+    branch_pattern: coverity_scan
