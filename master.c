@@ -18,7 +18,7 @@
 #define IP_STATUS_WAITING 1
 #define IP_STATUS_SCANNED 2
 
-
+// bl bla bal
 #define MAX_RANGE_LENGTH 30 //maqsimum ramxela diapazoni gavugzavnot skaners
 
 #define ZERO_CHAR '0'
