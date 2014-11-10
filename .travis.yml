@@ -1,20 +1,25 @@
 language: c
 compiler: gcc
 
-env:
-  global:
+before_install:
+  - sudo apt-get install -qq cppcheck
+
+#env:
+#  global:
    # The next declaration is the encrypted COVERITY_SCAN_TOKEN, created
    #   via the "travis encrypt" command using the project repo's public key
-   - secure: "WHkT1bLbpz8VA8tl+qyZvWHLg7YvnMPhCNXCEAQQaklcDq8HQ7glIrrs35VnTDfs09tVgkPbgsAfwBuwxqkmmxWaquW0AHdb6cefNpQVj2ovUriQVNBFmjfte9Bbq0NWKoLp+4IY/3IDfLoUOekOIDXuQtkJhNvX1zkkt21lSeo="
+#   - secure: "WHkT1bLbpz8VA8tl+qyZvWHLg7YvnMPhCNXCEAQQaklcDq8HQ7glIrrs35VnTDfs09tVgkPbgsAfwBuwxqkmmxWaquW0AHdb6cefNpQVj2ovUriQVNBFmjfte9Bbq0NWKoLp+4IY/3IDfLoUOekOIDXuQtkJhNvX1zkkt21lSeo="
 
-addons:
-  coverity_scan:
-    project:
-      name: "Freeuni-CN101-2014/midterm"
-      description: "Build submitted via Travis CI"
-    notification_email: gkiko10@freeuni.edu.ge
-    build_command_prepend: ""
-    build_command:   "make"
-    branch_pattern: "*"
+#addons:
+#  coverity_scan:
+#    project:
+#      name: "Freeuni-CN101-2014/midterm"
+#      description: "Build submitted via Travis CI"
+#    notification_email: gkiko10@freeuni.edu.ge
+#    build_command_prepend: ""
+#    build_command:   "make"
+#    branch_pattern: "*"
 
-script: make
+script:
+  - cppcheck --error-exitcode=1 --quiet .
+  - make
